@@ -13,36 +13,73 @@
 
 <body>
     <header class="container d-flex flex-column">
-        <h3 class="row d-flex justify-content-center m-1">SHAPE CREATOR</h3>
-        <div class="card-group d-flex flex-row justify-content-around shapes m-1">
-            <div class="card">
-                <div class="card-body d-flex flex-column">
-                    <input type="text" placeholder="height">
-                    <input type="text" placeholder="width">
-                    <button class="row d-inline-flex">Add Rectangle</button>
-                </div>
+        <h3 class="row d-flex justify-content-center">SHAPE CREATOR</h3>
+        <!-- shape input boxes -->
+        <div class="d-flex flex-row">
+            <div class="col-3 d-flex flex-column justify-content-between align-items-center">
+                <input type="text" placeholder="height">
+                <input type="text" placeholder="width">
+                <button class="row d-flex justify-content-center rounded add-shape" id="btn-rectangle">Add
+                    Rectangle</button>
             </div>
-            <div class="card">
-                <div class="card-body d-flex flex-column">
-                    <input type="text" placeholder="radius">
-                    <button class="row d-inline-flex">Add Circle</button>
-                </div>
+            <div class="col-3 d-flex flex-column justify-content-between align-items-center">
+                <input type="text" placeholder="radius">
+                <button class="row d-flex justify-content-center rounded add-shape" id="btn-circle">Add Circle</button>
             </div>
-            <div class="card">
-                <div class="card-body d-flex flex-column">
-                    <input type="text" placeholder="side">
-                    <button class="row d-inline-flex">Add Square</button>
-                </div>
+            <div class="col-3 d-flex flex-column justify-content-between align-items-center">
+                <input type="text" placeholder="side">
+                <button class="row d-flex justify-content-center rounded add-shape" id="btn-square">Add Square</button>
             </div>
-            <div class="card">
-                <div class="card-body d-flex flex-column">
-                    <input type="text" placeholder="side">
-                    <button class="row d-inline-flex">Add Triangle</button>
-                </div>
+            <div class="col-3 d-flex flex-column justify-content-between align-items-center">
+                <input type="text" placeholder="height">
+                <button class="row d-flex justify-content-center rounded add-shape" id="btn-triangle">Add
+                    Triangle</button>
             </div>
         </div>
     </header>
-    <main class="container d-flex flex-row"></main>
+    <!-- shape display and side panel -->
+    <main class="container d-flex flex-row">
+        <div class="col-8" id="shape-container"></div>
+        <div class="col-4 d-flex flex-column justify-content-around" id="side-panel">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="shape-info">shape</span>
+                </div>
+                <input type="text" class="form-control">
+            </div>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="shape-height">height</span>
+                </div>
+                <input type="text" class="form-control" text="200">
+            </div>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="shape-width">width</span>
+                </div>
+                <input type="text" class="form-control" text="200">
+            </div>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="shape-area">area</span>
+                </div>
+                <input type="text" class="form-control" text="200">
+            </div>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="shape-perimeter">perimeter</span>
+                </div>
+                <input type="text" class="form-control" text="200">
+            </div>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="shape-radius">radius</span>
+                </div>
+                <input type="text" class="form-control" text="200">
+            </div>
+
+        </div>
+    </main>
     <script src="app.js"></script>
 </body>
 

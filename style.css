@@ -1,0 +1,36 @@
+* {
+    font-variant-caps: all-small-caps;
+}
+
+.add-shape {
+    margin: 5px;
+    padding: 5px;
+    font-weight: 500;
+}
+
+#btn-rectangle {
+    background-color: lightgreen;
+}
+
+#btn-circle {
+    background-color: blueviolet;
+}
+
+#btn-square {
+    background-color: tomato;
+}
+
+#btn-triangle {
+    background-color: gold;
+}
+
+#shape-container {
+    height: 600px;
+    width: 600px;
+    background-color: lightgray;
+}
+
+#side-panel {
+    border: solid 3px black;
+
+}
