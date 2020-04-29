@@ -1,5 +1,6 @@
 // let side = document.
-// let max = 600 - side;
+let max = 600;
+let min = 100;
 let container = document.getElementById('shape-container');
 // define and add click listeners to shape buttons
 let btnRectangle = document.getElementById('btn-rectangle');
@@ -12,8 +13,8 @@ let btnTriangle = document.getElementById('btn-triangle');
 btnTriangle.addEventListener('click', addShape);
 
 function addShape() {
-    let xVal = randomNum(0, max);
-    let yVal = randomNum(0, max);
+    let xVal = randomNum(0, 500);
+    let yVal = randomNum(0, 500);
     console.log(xVal, yVal);
     let shape = new Shape(xVal, yVal);
 }
@@ -26,7 +27,7 @@ function isNumberKey(evt){
     let charCode = (evt.which) ? evt.which : evt.keyCode
     if (charCode > 31 && (charCode < 48 || charCode > 57))
         // document.querySelector('input').value = null;
-        alert('please type a numeric value');
+        alert('make sure you only use numbers');
     return true;
 }
 
