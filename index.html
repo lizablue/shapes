@@ -14,24 +14,28 @@
 <body>
     <header class="container d-flex flex-column">
         <h3 class="row d-flex justify-content-center">SHAPE CREATOR</h3>
-        <!-- shape input boxes -->
+        <!-- shape input boxes and buttons -->
         <div class="d-flex flex-row" id="shape-input">
+            <!-- rectangle -->
             <div class="col-3 d-flex flex-column justify-content-between align-items-center">
-                <input type="text" placeholder="height" onkeypress="return isNumberKey(event)">
-                <input type="text" placeholder="width" onkeypress="return isNumberKey(event)">
+                <input type="text" id="recHeight" placeholder="height" onkeypress="return isNumberKey(event)">
+                <input type="text" id="recWidth" placeholder="width" onkeypress="return isNumberKey(event)">
                 <button class="row d-flex justify-content-center rounded add-shape" id="btn-rectangle">Add
                     Rectangle</button>
             </div>
+            <!-- circle -->
             <div class="col-3 d-flex flex-column justify-content-between align-items-center">
-                <input type="text" placeholder="radius" onkeypress="return isNumberKey(event)">
+                <input type="text" id="radius" placeholder="radius" onkeypress="return isNumberKey(event)">
                 <button class="row d-flex justify-content-center rounded add-shape" id="btn-circle">Add Circle</button>
             </div>
+            <!-- square -->
             <div class="col-3 d-flex flex-column justify-content-between align-items-center">
-                <input type="text" placeholder="side" onkeypress="return isNumberKey(event)">
+                <input type="text" id="sqSide" placeholder="side" onkeypress="return isNumberKey(event)">
                 <button class="row d-flex justify-content-center rounded add-shape" id="btn-square">Add Square</button>
             </div>
+            <!-- triangle -->
             <div class="col-3 d-flex flex-column justify-content-between align-items-center">
-                <input type="text" placeholder="height" onkeypress="return isNumberKey(event)">
+                <input type="text" id="triHeight" placeholder="height" onkeypress="return isNumberKey(event)">
                 <button class="row d-flex justify-content-center rounded add-shape" id="btn-triangle">Add
                     Triangle</button>
             </div>
@@ -39,38 +43,46 @@
     </header>
     <!-- shape display and side panel -->
     <main class="container d-flex flex-row justify-content-around">
+        <!-- shape container -->
         <div class="col-8 d-flex align-items-center" id="shape-container"></div>
+        <!-- side panel -->
         <div class="col-4 d-flex flex-column justify-content-around" id="side-panel">
+            <!-- shape -->
             <div class="input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="shape-info">shape</span>
                 </div>
                 <input type="text" class="form-control">
             </div>
+            <!-- height -->
             <div class="input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="shape-height">height</span>
                 </div>
                 <input type="text" class="form-control" text="200">
             </div>
+            <!-- width -->
             <div class="input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="shape-width">width</span>
                 </div>
                 <input type="text" class="form-control" text="200">
             </div>
+            <!-- area -->
             <div class="input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="shape-area">area</span>
                 </div>
                 <input type="text" class="form-control" text="200">
             </div>
+            <!-- perimeter -->
             <div class="input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="shape-perimeter">perimeter</span>
                 </div>
                 <input type="text" class="form-control" text="200">
             </div>
+            <!-- radius -->
             <div class="input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="shape-radius">radius</span>

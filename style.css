@@ -49,3 +49,19 @@ h3 {
     margin: 10px;
     border: solid 3px black;
 }
+
+.rectangle {
+    background-color: lightgreen;
+}
+
+.circle {
+    background-color: blueviolet;
+}
+
+.square {
+    background-color: tomato;
+}
+
+.triangle {
+    background-color: gold;
+}
