@@ -1,6 +1,6 @@
 // let side = document.
 let min
-let max = 600 - min;
+let max = 600
 let container = document.getElementById('shape-container');
 
 function addShape() {
@@ -25,7 +25,7 @@ function isNumberKey(evt) {
 class Shape {
     constructor(x, y) {
         this.div = document.createElement('div');
-        // this.div.classList.add('shape');
+        this.div.classList.add('shape');
         this.div.style.left = `${x}px`
         this.div.style.top = `${y}px`
         // this.div.style.backgroundColor = 'navy';
@@ -44,11 +44,17 @@ class Shape {
         let divIndex = diceArray.indexOf(this.div);
         diceArray.splice(divIndex, 1);
     }
+    
 }
 
 class Circle extends Shape {
     constructor(x, y, radius) {
         super(x, y);
+        this.div.classList.add('circle');
+        this.radius = parseInt(radius);
+        let diameter = this.radius * 2;
+        this.div.style.height = `${diameter}px`;
+        this.div.style.width = `${diameter}px`;
     }
 }
 
@@ -61,6 +67,7 @@ class Triangle extends Shape {
 class Rectangle extends Shape {
     constructor(x, y, height, width) {
         super(x, y);
+
     }
 }
 
@@ -71,15 +78,10 @@ class Square extends Shape {
         this.side = parseInt(side);
         this.div.style.height = `${this.side}px`;
         this.div.style.width = `${this.side}px`;
-        this.updateColor();
         // let sqDiv = document.createElement('div');
         // this.sqDiv.addSquare();
     }
 
-    updateColor() {
-        let newColor = `rgb(${randomNum(0, 255)}, ${randomNum(0, 255)}, ${randomNum(0, 255)})`;
-        this.div.style.background = newColor;
-    }
 }
 
 function addSquare() {
@@ -90,11 +92,22 @@ function addSquare() {
     console.log(xVal, yVal);
     let square = new Square(xVal, yVal, side);
 }
+
+function addCircle() {
+    radius = document.getElementById('radius').value;
+    console.log(radius);
+    let diameter = 2 * parseInt(radius);
+    xVal = randomNum(0, 500);
+    yVal = randomNum(0, 500);
+    console.log(xVal, yVal);
+    let square = new Circle(xVal, yVal, diameter);
+}
+
 // define and add click listeners to shape buttons
 let btnRectangle = document.getElementById('btn-rectangle');
 btnRectangle.addEventListener('click', addShape);
 let btnCircle = document.getElementById('btn-circle');
-btnCircle.addEventListener('click', addShape);
+btnCircle.addEventListener('click', addCircle);
 let btnSquare = document.getElementById('btn-square');
 btnSquare.addEventListener('click', addSquare);
 let btnTriangle = document.getElementById('btn-triangle');
