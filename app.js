@@ -13,6 +13,10 @@ function randomNum(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
+function formatNumber(num) {
+    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+  }
+
 function isNumberKey(evt) {
     let charCode = (evt.which) ? evt.which : evt.keyCode
     if (charCode > 31 && (charCode < 48 || charCode > 57))
@@ -40,8 +44,8 @@ class Shape {
 
     remove() {
         container.removeChild(this.div);
-        let divIndex = diceArray.indexOf(this.div);
-        diceArray.splice(divIndex, 1);
+        let sidePanel = document.getElementsByClassName('form-control');
+        sidePanel.value = null;
     }
     
 }
@@ -58,8 +62,13 @@ class Circle extends Shape {
 
     describe() {
         let cName = this.div.classList.value;
-        
         shapeInfo.value = cName;
+        shapeHeight.value = diameter;
+        shapeWidth.value = diameter;
+        let circleArea = Math.PI * this.radius ** 2;
+        shapeArea.value = formatNumber(circleArea.toFixed(0));
+        let circlePerimeter = 2 * Math.PI * this.radius;
+        shapePerimeter.value = formatNumber(circlePerimeter.toFixed(0));
         shapeRadius.value = this.radius;
     }
 }
@@ -70,6 +79,18 @@ class Triangle extends Shape {
         this.div.classList.add('triangle');
         this.height = parseInt(height);
         this.div.style.borderWidth = `${this.height}px 0 0 ${this.height}px`;
+    }
+
+    describe() {
+        let cName = this.div.classList.value;
+        shapeInfo.value = cName;
+        shapeHeight.value = this.height;
+        shapeWidth.value = this.height;
+        let triArea = .5 * this.height ** 2;
+        shapeArea.value = formatNumber(triArea.toFixed(0));
+        let triPerimeter = 2 * this.height + Math.sqrt(2) * this.height
+        shapePerimeter.value = formatNumber(triPerimeter.toFixed(0));
+        shapeRadius.value = 'N/A';
     }
 }
 
@@ -82,6 +103,18 @@ class Rectangle extends Shape {
         this.div.style.height = `${this.height}px`;
         this.div.style.width = `${this.width}px`;
     }
+
+    describe() {
+        let cName = this.div.classList.value;
+        shapeInfo.value = cName;
+        shapeHeight.value = this.height;
+        shapeWidth.value = this.width;
+        let recArea = this.width * this.height;
+        shapeArea.value = formatNumber(recArea.toFixed(0));
+        let recPerimeter = 2 * this.height + 2 * this.width
+        shapePerimeter.value = formatNumber(recPerimeter.toFixed(0));
+        shapeRadius.value = 'N/A';
+    }
 }
 
 class Square extends Shape {
@@ -91,7 +124,18 @@ class Square extends Shape {
         this.side = parseInt(side);
         this.div.style.height = `${this.side}px`;
         this.div.style.width = `${this.side}px`;
-        
+    }
+
+    describe() {
+        let cName = this.div.classList.value;
+        shapeInfo.value = cName;
+        shapeHeight.value = this.side;
+        shapeWidth.value = this.side;
+        let sqArea = this.side ** 2;
+        shapeArea.value = formatNumber(sqArea.toFixed(0));
+        let sqPerimeter = 4 * this.side;
+        shapePerimeter.value = formatNumber(sqPerimeter.toFixed(0));
+        shapeRadius.value = 'N/A';
     }
 }
 
