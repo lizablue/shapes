@@ -1,6 +1,4 @@
-// let side = document.
-let min
-let max = 600
+
 let container = document.getElementById('shape-container');
 let shapeInfo = document.getElementById('shape-info');
 let shapeHeight = document.getElementById('shape-height');
@@ -9,14 +7,17 @@ let shapeArea = document.getElementById('shape-area');
 let shapePerimeter = document.getElementById('shape-perimeter');
 let shapeRadius = document.getElementById('shape-radius');
 
+// generates random numbers for a random location
 function randomNum(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
+// formats the side panel numbers to have a comma if greater than 1,000
 function formatNumber(num) {
     return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-  }
+}
 
+// alerts that only numbers are accepted in the shape inputs
 function isNumberKey(evt) {
     let charCode = (evt.which) ? evt.which : evt.keyCode
     if (charCode > 31 && (charCode < 48 || charCode > 57))
@@ -25,6 +26,7 @@ function isNumberKey(evt) {
     return true;
 }
 
+// parent class
 class Shape {
     constructor(x, y) {
         this.div = document.createElement('div');
@@ -51,7 +53,7 @@ class Shape {
         shapePerimeter.value = '';
         shapeRadius.value = '';
     }
-    
+
 }
 
 class Circle extends Shape {
@@ -143,39 +145,56 @@ class Square extends Shape {
     }
 }
 
+// add each shape in a random location with the size determined by the inputs
 function addSquare() {
     side = document.getElementById('sqSide').value;
-    max = 600 - side
-    xVal = randomNum(0, max);
-    yVal = randomNum(0, max);
-    let square = new Square(xVal, yVal, side);
+    if (side > 600 || side < 1) {
+        alert('enter a value from 1 - 600')
+    } else {
+        max = 600 - side
+        xVal = randomNum(0, max);
+        yVal = randomNum(0, max);
+        let square = new Square(xVal, yVal, side);
+    }
 }
 
 function addCircle() {
     radius = document.getElementById('radius').value;
     diameter = 2 * parseInt(radius);
-    max = 600 - diameter
-    xVal = randomNum(0, max);
-    yVal = randomNum(0, max);
-    let circle = new Circle(xVal, yVal, radius);
+    if (radius > 300 || radius < 1) {
+        alert('enter a value from 1 - 300')
+    } else {
+        max = 600 - diameter
+        xVal = randomNum(0, max);
+        yVal = randomNum(0, max);
+        let circle = new Circle(xVal, yVal, radius);
+    }
 }
 
 function addRectangle() {
     height = document.getElementById('recHeight').value;
     width = document.getElementById('recWidth').value;
-    maxH = 600 - height
-    maxW = 600 - width
-    xVal = randomNum(0, maxW);
-    yVal = randomNum(0, maxH);
-    let rectangle = new Rectangle(xVal, yVal, height, width);
+    if (height > 600 || height < 1 || width > 600 || width < 1) {
+        alert('enter a value from 1 - 600')
+    } else {
+        maxH = 600 - height
+        maxW = 600 - width
+        xVal = randomNum(0, maxW);
+        yVal = randomNum(0, maxH);
+        let rectangle = new Rectangle(xVal, yVal, height, width);
+    }
 }
 
 function addTriangle() {
     height = document.getElementById('triHeight').value;
-    max = 600 - height
-    xVal = randomNum(0, max);
-    yVal = randomNum(0, max);
-    let triangle = new Triangle(xVal, yVal, height);
+    if (height > 600 || height < 1) {
+        alert('enter a value from 1 - 600')
+    } else {
+        max = 600 - height
+        xVal = randomNum(0, max);
+        yVal = randomNum(0, max);
+        let triangle = new Triangle(xVal, yVal, height);
+    }
 }
 
 // define and add click listeners to shape buttons
