@@ -12,10 +12,6 @@ h3 {
     font-weight: 500;
 }
 
-.shape {
-    position: absolute;
-}
-
 #shape-input {
     margin: 30px;
 }
@@ -49,18 +45,23 @@ h3 {
 }
 
 .rectangle {
+    position: absolute;
     background-color: lightgreen;
 }
 
 .circle {
+    position: absolute;
     background-color: blueviolet;
     border-radius: 100%;
 }
 
 .square {
+    position: absolute;
     background-color: tomato;
 }
 
 .triangle {
-    background-color: gold;
+    position: absolute;
+    border-style: solid;
+    border-color: transparent transparent transparent #FFD700;
 }

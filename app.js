@@ -18,7 +18,6 @@ function isNumberKey(evt) {
 class Shape {
     constructor(x, y) {
         this.div = document.createElement('div');
-        this.div.classList.add('shape');
         this.div.style.left = `${x}px`
         this.div.style.top = `${y}px`
         container.appendChild(this.div);
@@ -28,11 +27,13 @@ class Shape {
     }
 
     describe() {
-
+        let cName = this.div.classList.value;
+        let shapeInfo = document.getElementById('shape-info');
+        shapeInfo.value = cName;
     }
 
     remove() {
-        section.removeChild(this.div);
+        container.removeChild(this.div);
         let divIndex = diceArray.indexOf(this.div);
         diceArray.splice(divIndex, 1);
     }
@@ -55,8 +56,7 @@ class Triangle extends Shape {
         super(x, y);
         this.div.classList.add('triangle');
         this.height = parseInt(height);
-        this.div.style.height = `${this.height}px`;
-        this.div.style.width = `${this.height}px`;
+        this.div.style.borderWidth = `${this.height}px 0 0 ${this.height}px`;
     }
 }
 
@@ -78,48 +78,44 @@ class Square extends Shape {
         this.side = parseInt(side);
         this.div.style.height = `${this.side}px`;
         this.div.style.width = `${this.side}px`;
+        
     }
-
 }
 
 function addSquare() {
     side = document.getElementById('sqSide').value;
-    console.log(side);
-    xVal = randomNum(0, 500);
-    yVal = randomNum(0, 500);
-    console.log(xVal, yVal);
+    max = 600 - side
+    xVal = randomNum(0, max);
+    yVal = randomNum(0, max);
     let square = new Square(xVal, yVal, side);
 }
 
 function addCircle() {
     radius = document.getElementById('radius').value;
-    console.log(radius);
-    let diameter = 2 * parseInt(radius);
-    xVal = randomNum(0, 500);
-    yVal = randomNum(0, 500);
-    console.log(xVal, yVal);
-    let square = new Circle(xVal, yVal, diameter);
+    diameter = 2 * parseInt(radius);
+    max = 600 - diameter
+    xVal = randomNum(0, max);
+    yVal = randomNum(0, max);
+    let circle = new Circle(xVal, yVal, radius);
 }
 
 function addRectangle() {
     height = document.getElementById('recHeight').value;
     width = document.getElementById('recWidth').value;
-    console.log(height, width);
-    xVal = randomNum(0, 500);
-    yVal = randomNum(0, 500);
-    console.log(xVal, yVal);
+    maxH = 600 - height
+    maxW = 600 - width
+    xVal = randomNum(0, maxW);
+    yVal = randomNum(0, maxH);
     let rectangle = new Rectangle(xVal, yVal, height, width);
 }
 
 function addTriangle() {
     height = document.getElementById('triHeight').value;
-    console.log(height, width);
-    xVal = randomNum(0, 500);
-    yVal = randomNum(0, 500);
-    console.log(xVal, yVal);
+    max = 600 - height
+    xVal = randomNum(0, max);
+    yVal = randomNum(0, max);
     let triangle = new Triangle(xVal, yVal, height);
 }
-
 
 // define and add click listeners to shape buttons
 let btnRectangle = document.getElementById('btn-rectangle');
