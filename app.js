@@ -2,6 +2,12 @@
 let min
 let max = 600
 let container = document.getElementById('shape-container');
+let shapeInfo = document.getElementById('shape-info');
+let shapeHeight = document.getElementById('shape-height');
+let shapeWidth = document.getElementById('shape-width');
+let shapeArea = document.getElementById('shape-area');
+let shapePerimeter = document.getElementById('shape-perimeter');
+let shapeRadius = document.getElementById('shape-radius');
 
 function randomNum(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
@@ -48,6 +54,13 @@ class Circle extends Shape {
         let diameter = this.radius * 2;
         this.div.style.height = `${diameter}px`;
         this.div.style.width = `${diameter}px`;
+    }
+
+    describe() {
+        let cName = this.div.classList.value;
+        
+        shapeInfo.value = cName;
+        shapeRadius.value = this.radius;
     }
 }
 
