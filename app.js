@@ -44,8 +44,12 @@ class Shape {
 
     remove() {
         container.removeChild(this.div);
-        let sidePanel = document.getElementsByClassName('form-control');
-        sidePanel.value = null;
+        shapeInfo.value = '';
+        shapeHeight.value = '';
+        shapeWidth.value = '';
+        shapeArea.value = '';
+        shapePerimeter.value = '';
+        shapeRadius.value = '';
     }
     
 }
