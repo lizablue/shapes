@@ -36,13 +36,6 @@ h3 {
     background-color: gold;
 }
 
-#btn-capture {
-    margin: auto;
-    padding: 5px;
-    background-color: black;
-    color: white;
-}
-
 #shape-container {
     height: 600px;
     max-width: 600px;
