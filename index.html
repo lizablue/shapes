@@ -13,7 +13,7 @@
 
 <body>
     <header class="container d-flex flex-column">
-        <h3 class="row d-flex justify-content-center">SHAPE CREATOR</h3>
+        <h3 class="d-flex flex-row justify-content-center">SHAPE CREATOR</h3>
         <!-- shape input boxes and buttons -->
         <div class="d-flex flex-row" id="shape-input">
             <!-- rectangle -->
@@ -40,7 +40,9 @@
                     Triangle</button>
             </div>
         </div>
+        <button type="button" class="d-flex flex-row col-2 justify-content-center btn rounded" id="btn-capture">capture</button>
     </header>
+    
     <!-- shape display and side panel -->
     <main class="container d-flex flex-row justify-content-around">
         <!-- shape container -->
@@ -91,6 +93,7 @@
             </div>
         </div>
     </main>
+    <script src="html2canvas.min.js"></script>
     <script src="app.js"></script>
 </body>
 

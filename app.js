@@ -206,3 +206,15 @@ let btnSquare = document.getElementById('btn-square');
 btnSquare.addEventListener('click', addSquare);
 let btnTriangle = document.getElementById('btn-triangle');
 btnTriangle.addEventListener('click', addTriangle);
+
+// button to capture an image of your div
+let btnCapture = document.getElementById('btn-capture');
+btnCapture.addEventListener('click', function() {
+    html2canvas(container).then(function(canvas) {
+        // Export the canvas to its data URI representation
+        var base64image = canvas.toDataURL("image/png");
+    
+        // Open the image in a new window
+        window.open(base64image , "_blank");
+    });
+});

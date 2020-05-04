@@ -2,6 +2,10 @@
     font-variant-caps: all-small-caps;
 }
 
+header {
+    margin: 10px;
+}
+
 h3 {
     margin: 10px;
 }
@@ -30,6 +34,13 @@ h3 {
 
 #btn-triangle {
     background-color: gold;
+}
+
+#btn-capture {
+    margin: auto;
+    padding: 5px;
+    background-color: black;
+    color: white;
 }
 
 #shape-container {
